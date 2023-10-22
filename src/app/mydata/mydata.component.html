@@ -1,0 +1,38 @@
+<p>
+    my name is {{dyname}}
+</p>
+
+<br><br><br>
+
+{{dyname.toUpperCase()}}
+
+
+<br><br><br>
+
+{{myMethod()}}
+
+
+<br><br><br>
+
+My app status is {{appStatus?"online":"offline"}}
+
+<br><br><br>
+
+<input type="text" [disabled]="true" name="" [value]='appStatus?"online":"offline"'>
+
+<br><br>
+
+<input type="text" [hidden]="false" name="" [value]="dyname">
+
+<br><br>
+
+<input type="text" value="hello" [(ngModel)]="title">
+
+<p>{{title}}</p>
+
+
+<h1 [class.myclass]="isvalid">Usman</h1>
+
+<h2 [ngClass]="multiclassses">Khan</h2>
+
+<br>

@@ -1,0 +1,26 @@
+<button (click)="showPara()">Click Me</button>
+
+<br>
+
+<h2>{{msg}}</h2>
+
+
+<input type="text" value="myinput" (input)="onInput($event)">
+
+<br><br><br>
+
+<button (click)="addToCart($event)">Laptop</button>
+<button (click)="addToCart($event)">TV</button>
+<button (click)="addToCart($event)">Machine</button>
+
+
+
+
+<h1>{{msg1}}</h1>
+
+
+<br><br><br>
+
+<input #inputInfo type="text" value="UsmanKhan" name="Deigitaldev">
+
+<button (click)="getInfo(inputInfo)">Get Info</button>
