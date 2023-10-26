@@ -1,19 +1,64 @@
 <div class="container py-5">
+  <h2 class="text-center pb-5 text-danger">Two Way Data Binding</h2>
 
-    <input type="text" [(ngModel)]="username">
-
-
-    <h1>{{username}}</h1>
+  <input type="text" [(ngModel)]="username">
 
 
-    <button (click)="change()">Click Me</button>
-
-    <p>{{sas}}</p>
+  <h1>{{username}}</h1>
 
 
-    <br><br><br><br>
+  <button (click)="change()">Click Me</button>
+
+  <p>{{sas}}</p>
+
+</div>
 
 
+<div class="container">
+  <div class="row">
+    <h1 class="text-center pb-5 text-warning">Example of ng-Content</h1>
+    <div class="col-md-4 pb-5">
+      <app-ngcontent>
+        <img class="card-img-top"
+          src="https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?auto=format&fit=crop&q=60&w=400&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
+          alt="Card image cap" width="100%" height="200px">
+        <h5 class="card-title">Harry</h5>
+      </app-ngcontent>
+    </div>
+    <div class="col-md-4 pb-5">
+      <app-ngcontent>
+        <img class="card-img-top"
+          src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=crop&q=60&w=400&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
+          alt="Card image cap" width="100%" height="200px">
+        <h5 class="card-title">Garry</h5>
+      </app-ngcontent>
+    </div>
+    <div class="col-md-4 pb-5">
+      <app-ngcontent>
+        <img class="card-img-top"
+          src="https://images.unsplash.com/photo-1618641986557-1ecd230959aa?auto=format&fit=crop&q=60&w=400&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
+          alt="Card image cap" width="100%" height="200px">
+        <h5 class="card-title">Larry</h5>
+      </app-ngcontent>
+    </div>
+  </div>
+</div>
+<br><br><br>
 
-
+<div class="container">
+  <h1>FRUITS RICH IN PROTEIN</h1>
+  <table class="table table-dark table-striped table-hover table-bordered align-middle text-center">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Protein Content</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fruit of proteinfruitlist; index as i">
+        <td>{{fruit.name}}</td>
+        <td>{{fruit.proteinContent}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

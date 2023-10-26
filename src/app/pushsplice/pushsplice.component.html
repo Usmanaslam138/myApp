@@ -1,41 +1,41 @@
 <div class="container p-2">
-    <div class="row">
-        <div class="col">
-            <div class="form-group py-4">
-                <label>Full Name</label>
-                <input type="text" class="form-control" value="" #ufullname placeholder="Enter your full name" required>
-            </div>
-            <div class="form-group pb-3">
-                <label>Email address</label>
-                <input type="email" class="form-control" value="" #uemail placeholder="Enter email" required>
-                <small class="form-text text-muted">We'll never share your email with anyone
-                    else.</small>
-            </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-group py-4">
+        <label>Full Name</label>
+        <input type="text" class="form-control" value="" #ufullname placeholder="Enter your full name" required>
+      </div>
+      <div class="form-group pb-3">
+        <label>Email address</label>
+        <input type="email" class="form-control" value="" #uemail placeholder="Enter email" required>
+        <small class="form-text text-muted">We'll never share your email with anyone
+          else.</small>
+      </div>
 
-            <button type="submit" class="btn btn-warning" (click)="getUserData(ufullname,uemail)">Submit</button>
+      <button type="submit" class="btn btn-warning" (click)="getUserData(ufullname,uemail)">Submit</button>
 
-        </div>
     </div>
-    <div class="row py-5">
-        <div class="col-12">
-            <table class="table table-dark table-striped table-hover table-bordered align-middle text-center">
-                <thead>
-                    <tr>
-                        <th style="width: 44%;">Full Name</th>
-                        <th style="width: 44%;">Email</th>
-                        <th style="width: 12%;">Remove Btn</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let data of PersonalInfo; index as i" class="bg-warning">
-                        <td>{{data.UserName}}</td>
-                        <td>{{data.EmailId}}</td>
-                        <td><button class="btn btn-danger" (click)="removeInfo(i)"><i
-                                    class="ri-close-line"></i></button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+  </div>
+  <div class="row py-5">
+    <div class="col-12">
+      <table class="table table-dark table-striped table-hover table-bordered align-middle text-center"
+        *ngIf="tableshow">
+        <thead>
+          <tr>
+            <th style="width: 44%;">Full Name</th>
+            <th style="width: 44%;">Email</th>
+            <th style="width: 12%;">Remove Btn</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of PersonalInfo; index as i" class="bg-warning">
+            <td>{{data.UserName}}</td>
+            <td>{{data.EmailId}}</td>
+            <td><button class="btn btn-danger" (click)="removeInfo(i)"><i class="ri-close-line"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>

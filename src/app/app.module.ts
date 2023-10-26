@@ -15,7 +15,12 @@ import { LoginpageComponent } from "./loginpage/loginpage.component";
 import { Error404Component } from "./error404/error404.component";
 import { HeasderComponent } from "./heasder/heasder.component";
 import { ProductsComponent } from "./products/products.component";
-import { NikeShoesComponent } from './products/nike-shoes/nike-shoes.component';
+import { NikeShoesComponent } from "./products/nike-shoes/nike-shoes.component";
+import { AdidasshoesComponent } from "./products/adidasshoes/adidasshoes.component";
+import { NgcontentComponent } from "./ngcontent/ngcontent.component";
+import { BuyproductsComponent } from "./buyproducts/buyproducts.component";
+import { ChildComponent } from "./child/child.component";
+import { ProteinfruitsService } from "./appService/proteinfruits.service";
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "login", pathMatch: "full" },
@@ -25,7 +30,15 @@ const appRoutes: Routes = [
   { path: "Push & Splice", component: PushspliceComponent },
   { path: "data binding", component: TwowaybindingComponent },
   { path: "login", component: LoginpageComponent },
-  { path: "products", component: ProductsComponent },
+  { path: "buyproducts", component: BuyproductsComponent },
+  {
+    path: "products",
+    component: ProductsComponent,
+    children: [
+      { path: "adidasShoes", component: AdidasshoesComponent },
+      { path: "nikeshoes", component: NikeShoesComponent },
+    ],
+  },
   { path: "**", component: Error404Component },
 ];
 
@@ -44,9 +57,13 @@ const appRoutes: Routes = [
     HeasderComponent,
     ProductsComponent,
     NikeShoesComponent,
+    AdidasshoesComponent,
+    NgcontentComponent,
+    BuyproductsComponent,
+    ChildComponent,
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
-  providers: [],
+  providers: [ProteinfruitsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

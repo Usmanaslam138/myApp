@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { ProteinfruitsService } from "../appService/proteinfruits.service";
 
 @Component({
   selector: "app-twowaybinding",
@@ -6,6 +7,8 @@ import { Component } from "@angular/core";
   styleUrls: ["./twowaybinding.component.css"],
 })
 export class TwowaybindingComponent {
+  constructor(private _proteinRich: ProteinfruitsService) {}
+
   username: string = "";
 
   msg = {
@@ -17,5 +20,10 @@ export class TwowaybindingComponent {
   sas: any;
   change() {
     this.sas = this.msg.age;
+  }
+
+  proteinfruitlist: any;
+  ngOnInit() {
+    this.proteinfruitlist = this._proteinRich.proteinRichFruits;
   }
 }

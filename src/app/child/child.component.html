@@ -1,0 +1,6 @@
+<!-- col -->
+<div class="col-12 bg-light shadow py-4 mb-5 text-center">
+  <h2 *ngIf="!productselected" class="text-bg-warning py-2">Please Select any Product</h2>
+  <h2 *ngIf="productselected" class="text-bg-danger py-2">{{selectedProduct}} is selected</h2>
+  <button class="btn btn-success mx-auto w-25 my-3 py-3" (click)="onaddtocart()">Add to Cart</button>
+</div>
