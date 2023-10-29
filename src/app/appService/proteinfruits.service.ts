@@ -1,31 +1,14 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root",
 })
 export class ProteinfruitsService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  proteinRichFruits = [
-    {
-      name: "Guava",
-      proteinContent: "4.2 grams per 100g",
-    },
-    {
-      name: "Blackberries",
-      proteinContent: "2 grams per 100g",
-    },
-    {
-      name: "Jackfruit",
-      proteinContent: "2.5 grams per 100g",
-    },
-    {
-      name: "Avocado",
-      proteinContent: "2 grams per 100g",
-    },
-    {
-      name: "Passion Fruit",
-      proteinContent: "1.5 grams per 100g",
-    },
-  ];
+  proteinRichFruits(): Observable<any> {
+    return this.http.get("https://jsonplaceholder.typicode.com/todos");
+  }
 }

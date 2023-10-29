@@ -1,0 +1,10 @@
+.custom {
+  display: flex;
+  justify-content: space-between;
+}
+.c1 {
+  background-color: rgba(250, 208, 68, 0.269);
+}
+.c2 {
+  background-color: rgba(255, 119, 0, 0.322);
+}

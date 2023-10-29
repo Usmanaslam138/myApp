@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from "./app.component";
 import { MydataComponent } from "./mydata/mydata.component";
@@ -21,6 +22,8 @@ import { NgcontentComponent } from "./ngcontent/ngcontent.component";
 import { BuyproductsComponent } from "./buyproducts/buyproducts.component";
 import { ChildComponent } from "./child/child.component";
 import { ProteinfruitsService } from "./appService/proteinfruits.service";
+import { Exercise1Component } from "./exercise1/exercise1.component";
+import { UserpanelComponent } from "./exercise1/userpanel/userpanel.component";
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "login", pathMatch: "full" },
@@ -31,6 +34,7 @@ const appRoutes: Routes = [
   { path: "data binding", component: TwowaybindingComponent },
   { path: "login", component: LoginpageComponent },
   { path: "buyproducts", component: BuyproductsComponent },
+  { path: "dashboard", component: Exercise1Component },
   {
     path: "products",
     component: ProductsComponent,
@@ -61,8 +65,15 @@ const appRoutes: Routes = [
     NgcontentComponent,
     BuyproductsComponent,
     ChildComponent,
+    Exercise1Component,
+    UserpanelComponent,
   ],
-  imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule,
+  ],
   providers: [ProteinfruitsService],
   bootstrap: [AppComponent],
 })

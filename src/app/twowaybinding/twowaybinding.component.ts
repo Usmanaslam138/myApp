@@ -24,6 +24,9 @@ export class TwowaybindingComponent {
 
   proteinfruitlist: any;
   ngOnInit() {
-    this.proteinfruitlist = this._proteinRich.proteinRichFruits;
+    // this.proteinfruitlist = this._proteinRich.proteinRichFruits;
+    this._proteinRich
+      .proteinRichFruits()
+      .subscribe((productData) => (this.proteinfruitlist = productData));
   }
 }

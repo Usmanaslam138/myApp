@@ -50,14 +50,16 @@
   <table class="table table-dark table-striped table-hover table-bordered align-middle text-center">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Protein Content</th>
+        <th>Title</th>
+        <th>Completed</th>
+        <th>ID</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let fruit of proteinfruitlist; index as i">
-        <td>{{fruit.name}}</td>
-        <td>{{fruit.proteinContent}}</td>
+      <tr *ngFor="let data of proteinfruitlist; index as i">
+        <td>{{data.title}}</td>
+        <td>{{data.completed}}</td>
+        <td>{{data.id}}</td>
       </tr>
     </tbody>
   </table>
