@@ -24,6 +24,15 @@ import { ChildComponent } from "./child/child.component";
 import { ProteinfruitsService } from "./appService/proteinfruits.service";
 import { Exercise1Component } from "./exercise1/exercise1.component";
 import { UserpanelComponent } from "./exercise1/userpanel/userpanel.component";
+import { SubjectcomComponent } from "./subjectcom/subjectcom.component";
+import { Child1Component } from "./subjectcom/child1/child1.component";
+import { Child2Component } from "./subjectcom/child2/child2.component";
+import { SubjectbehService } from "./subjectservice/subjectbeh.service";
+import { TestingComponent } from "./subjectcom/testing/testing.component";
+import { ViewchildsComponent } from "./viewchilds/viewchilds.component";
+import { Children1Component } from './viewchilds/children1/children1.component';
+import { TestingDirectiveDirective } from './appDirectives/testing-directive.directive';
+import { DropdowndDirective } from './appDirectives/dropdownd.directive';
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "login", pathMatch: "full" },
@@ -35,6 +44,8 @@ const appRoutes: Routes = [
   { path: "login", component: LoginpageComponent },
   { path: "buyproducts", component: BuyproductsComponent },
   { path: "dashboard", component: Exercise1Component },
+  { path: "subject", component: SubjectcomComponent },
+  { path: "Practice", component: ViewchildsComponent },
   {
     path: "products",
     component: ProductsComponent,
@@ -67,6 +78,14 @@ const appRoutes: Routes = [
     ChildComponent,
     Exercise1Component,
     UserpanelComponent,
+    Child1Component,
+    Child2Component,
+    SubjectcomComponent,
+    TestingComponent,
+    ViewchildsComponent,
+    Children1Component,
+    TestingDirectiveDirective,
+    DropdowndDirective,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +93,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
   ],
-  providers: [ProteinfruitsService],
+  providers: [ProteinfruitsService, SubjectbehService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

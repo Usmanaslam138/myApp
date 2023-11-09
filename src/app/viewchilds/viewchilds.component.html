@@ -1,0 +1,39 @@
+<div class="container bg-danger text-center py-5">
+  <div #box>
+    <h1 class="py-3 text-bg-warning">{{date | date:'medium' | uppercase}}</h1>
+    <h1 class="text-warning">{{value | titlecase}}</h1>
+    <button class="btn btn-primary" (click)="changeUser()">Change UserName</button> &nbsp;
+    <button class="btn btn-success" (click)="accessClick()">Access Click Me</button>
+  </div>
+</div>
+<app-children1>
+  <p #childcont>This is ng content Paragraph</p>
+</app-children1>
+
+
+<div class="container py-5 dropcont">
+  <h1 class="text-center text-bg-warning py-3 my-3">Host Binding and Listener</h1>
+  <h2 class="text-danger" appDropdownd>Menu List <span>↓</span></h2>
+  <div class="dropdown">
+    <a href="">Biryani</a>
+    <a href="">Pizza</a>
+    <a href="">Tikka</a>
+    <a href="">Pulao</a>
+    <a href="">Zinger</a>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br>

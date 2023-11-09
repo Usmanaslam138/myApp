@@ -1,0 +1,16 @@
+<div class="container text-center">
+  <h1 class="py-5 bg-success">Username: <b class="text-warning">{{userName}}</b></h1>
+  <div class="d-flex justify-content-center bg-dark">
+    <app-child1></app-child1>
+    <app-child2></app-child2>
+  </div>
+</div>
+
+<div class="container py-5 text-bg-warning my-2 text-center">
+  <h1 class="text-success py-3 text-decoration-underline">Lifecycle Hooks</h1>
+  <input type="text" placeholder="Enter Text" class="w-50 p-3" #ivalue>
+  <button (click)="UpdateName(ivalue)" class="p-3 text-bg-danger">Update</button>
+  <app-testing [myValue]="inputValue">
+    <p>Lifecycle Hooks Practice by {{inputValue}}</p>
+  </app-testing>
+</div>

@@ -1,0 +1,43 @@
+h2 {
+  border: 1px solid black;
+  width: 25%;
+  position: relative;
+  margin: 0%;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+h2:hover {
+  background-color: antiquewhite;
+}
+
+h2 span {
+  position: absolute;
+  right: 0%;
+  margin-right: 10px;
+}
+
+.dropdown {
+  margin: 0%;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  border: 1px solid gainsboro;
+  display: none;
+}
+
+h2.active + .dropdown {
+  display: flex;
+}
+
+ul li a {
+  text-decoration: none;
+}
+.dropdown a {
+  text-decoration: none;
+  font-size: 24px;
+  color: black;
+  padding: 10px 0;
+}
+.dropdown a:hover {
+  background-color: rgb(205, 205, 205);
+}

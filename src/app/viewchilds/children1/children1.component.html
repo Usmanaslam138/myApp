@@ -1,0 +1,7 @@
+<div class="container py-5 text-center" appTestingDirective>
+  <h2>Username: <strong class="text-warning">{{userName}}</strong></h2>
+  <button class="btn btn-warning" (click)="launchAlert()">Click Me</button>
+  <button class="btn btn-success" (click)="changeColor('green')">Green</button>
+  <button class="btn btn-primary" (click)="changeColor('orange')">Orange</button>
+  <ng-content></ng-content>
+</div>
