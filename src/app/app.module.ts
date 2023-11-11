@@ -33,6 +33,8 @@ import { ViewchildsComponent } from "./viewchilds/viewchilds.component";
 import { Children1Component } from './viewchilds/children1/children1.component';
 import { TestingDirectiveDirective } from './appDirectives/testing-directive.directive';
 import { DropdowndDirective } from './appDirectives/dropdownd.directive';
+import { MyPipe } from './cusompipe/my.pipe';
+import { FilterPPipe } from './cusompipe/filter-p.pipe';
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "login", pathMatch: "full" },
@@ -86,6 +88,8 @@ const appRoutes: Routes = [
     Children1Component,
     TestingDirectiveDirective,
     DropdowndDirective,
+    MyPipe,
+    FilterPPipe,
   ],
   imports: [
     BrowserModule,
