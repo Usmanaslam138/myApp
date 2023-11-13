@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from "./app.component";
@@ -30,11 +30,12 @@ import { Child2Component } from "./subjectcom/child2/child2.component";
 import { SubjectbehService } from "./subjectservice/subjectbeh.service";
 import { TestingComponent } from "./subjectcom/testing/testing.component";
 import { ViewchildsComponent } from "./viewchilds/viewchilds.component";
-import { Children1Component } from './viewchilds/children1/children1.component';
-import { TestingDirectiveDirective } from './appDirectives/testing-directive.directive';
-import { DropdowndDirective } from './appDirectives/dropdownd.directive';
-import { MyPipe } from './cusompipe/my.pipe';
-import { FilterPPipe } from './cusompipe/filter-p.pipe';
+import { Children1Component } from "./viewchilds/children1/children1.component";
+import { TestingDirectiveDirective } from "./appDirectives/testing-directive.directive";
+import { DropdowndDirective } from "./appDirectives/dropdownd.directive";
+import { MyPipe } from "./cusompipe/my.pipe";
+import { FilterPPipe } from "./cusompipe/filter-p.pipe";
+import { CommonModule } from "@angular/common";
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "login", pathMatch: "full" },
@@ -94,8 +95,10 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
+    CommonModule,
   ],
   providers: [ProteinfruitsService, SubjectbehService],
   bootstrap: [AppComponent],

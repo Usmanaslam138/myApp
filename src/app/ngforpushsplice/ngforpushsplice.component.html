@@ -1,36 +1,55 @@
-<div class="container py-5">
+<div class="container bg-body-secondary py-3">
+    <h1 class="text-center py-2">Contact Us</h1>
+    <form class="rounded shadow p-5 w-50 m-auto" (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+        <div ngModelGroup="userDetail" #userDetail="ngModelGroup">
+            <div class="mb-3">
+                <label for="username" class="form-label">UserName</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter your username" name="username"
+                    ngModel required>
+                <button type="button" class="mt-3 btn btn-warning" (click)="SetUsername()">AutoFill Username</button>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your Email" name="email" ngModel
+                    required email #email="ngModel">
+                <small *ngIf="!email.valid && email.touched" class="text-danger">Please enter a valid email</small>
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label class="form-label" for="course">Select Course</label>
+            <select class="form-select" id="course" name="course" [ngModel]="defaultCourse" required>
+                <option value="HTML">HTML</option>
+                <option value="HTML">CSS</option>
+                <option value="HTML">Bootstrap</option>
+                <option value="HTML">Angular</option>
+                <option value="HTML">React</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <div class="form-check" *ngFor="let item of gender">
+                <input class="form-check-input" type="radio" name="gender" id="{{item.id}}" value="{{item.value}}"
+                    ngModel required>
+                <label class="form-check-label" for="{{item.id}}">
+                    {{item.value}}
+                </label>
+            </div>
+            <!-- <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="female" value="Female" ngModel required>
+                <label class="form-check-label" for="Male">
+                  Female
+                </label>
+              </div> -->
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Submit</button>
+    </form>
+
     <div class="row">
-        <div class="col-md-12">
-            <table class="table table-striped align-middle table-hover table-bordered text-center table-dark">
-                <thead>
-                    <tr>
-                        <th scope="col">Sr. No</th>
-                        <th scope="col">Product Image</th>
-                        <th scope="col">Product Name</th>
-                        <th scope="col">Product Id</th>
-                        <th scope="col">Product Price</th>
-                        <th scope="col">Product Quantity</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let items of infoProducts; index as i">
-                        <td># {{i}}</td>
-                        <td><img src="{{items.img}}" width="50%" height="50%"></td>
-                        <td>{{items.name}}</td>
-                        <td>{{items.id}}</td>
-                        <td>{{items.price}}</td>
-                        <td>{{items.quantity}}</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="col-md-5 formData p-3 mx-3 mt-5 shadow rounder" *ngFor="let data of formData">
+            <p><strong>Username: </strong> {{data.username}}</p>
+            <p><strong>Email Id: </strong>{{data.Email}} </p>
+            <p><strong>Course Selected: </strong>{{data.course}} </p>
+            <p><strong>Gender: </strong>{{data.gender}}</p>
         </div>
     </div>
-</div>
 
-<div class="container">
-    <div class="item" *ngFor="let item of infoProducts">
-        <h1>{{item.name}}</h1>
-        <h2>Id = {{item.id}}</h2>
-        <img src="{{item.img}}" alt="" width="100%" height="100%">
-    </div>
 </div>

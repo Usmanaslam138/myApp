@@ -1,69 +1,48 @@
-<div class="container py-5">
+<div class="container bg-body-secondary py-3">
+  <h1 class="text-center py-2">Contact Us</h1>
+  <form class="rounded shadow p-5 w-50 m-auto" [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()">
+    <div formGroupName="userDetail">
+      <div class="mb-3">
+        <label for="username" class="form-label">UserName</label>
+        <input type="text" class="form-control" id="username" placeholder="Enter your username"
+          formControlName="username">
 
-  <button (click)="createBlock()" class="btn btn-warning">Click Me</button>
-
-  <br><br>
-
-  <div *ngIf="isValid; then thenblock else elseblock"></div>
-
-  <ng-template #elseblock>
-    <div class="text-bg-primary p-2">No block created yet click to create</div>
-  </ng-template>
-
-  <ng-template #thenblock>
-    <div class="bg-warning p-2">Block Created Successfully</div>
-  </ng-template>
-
-
-  <br><br><br>
-
-  <div class="container">
-    <div class="col-md-4">
-      <select class="form-control" (change)="getValue($event)">
-        <option value="default">Select at least one option</option>
-        <option value="Laptop">Laptop</option>
-        <option value="Mobile">Mobile</option>
-        <option value="Television">Television</option>
-        <option value="Speaker">Speaker</option>
-        <option value="Keyboard">Keyboard</option>
-        <option value="Mouse">Mouse</option>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your Email" formControlName="email">
+        <small class="text-danger"
+          *ngIf="!myReactiveForm.get('userDetail.email')?.valid && myReactiveForm.get('userDetail.email')?.touched">Please
+          enter a valid
+          email</small>
+      </div>
+    </div>
+    <div class="form-group mb-3">
+      <label class="form-label" for="course">Select Course</label>
+      <select class="form-select" id="course" formControlName="course">
+        <option value="HTML">HTML</option>
+        <option value="HTML">CSS</option>
+        <option value="HTML">Bootstrap</option>
+        <option value="HTML">Angular</option>
+        <option value="HTML">React</option>
       </select>
     </div>
-    <div class="py-2 my-5" [ngSwitch]="selectedProducts">
-      <h2 class="text-bg-warning text-center py-3" [class.py-2]="onmsgshow" *ngSwitchDefault>Select at least one
-        option
-      </h2>
-      <h2 class="text-bg-success text-center" [class.py-2]="onmsgshow" *ngSwitchCase="'Laptop'">Laptop</h2>
-      <h2 class="text-bg-success text-center" [class.py-2]="onmsgshow" *ngSwitchCase="'Mobile'">Mobile</h2>
-      <h2 class="text-bg-success text-center" [class.py-2]="onmsgshow" *ngSwitchCase="'Television'">Television
-      </h2>
-      <h2 class="text-bg-success text-center" [class.py-2]="onmsgshow" *ngSwitchCase="'Speaker'">Speaker</h2>
-      <h2 class="text-bg-success text-center" [class.py-2]="onmsgshow" *ngSwitchCase="'Keyboard'">Keyboard</h2>
-      <h2 class="text-bg-success text-center" [class.py-2]="onmsgshow" *ngSwitchCase="'Mouse'">Mouse</h2>
-    </div>
-  </div>
-
-
-  <br><br>
-  <div class="container py-4">
-    <div class="row">
-      <div class="col-12 d-flex justify-content-center flex-column">
-        <h3 class="py-3 text-center">Do you want to know the Benefits of angular then type <span
-            class="text-danger">confirm</span> in input
-          below
-          and <span class="text-success">click
-            enter</span></h3>
-        <input #uconfirm type="text" class="form-control border-black w-50 mx-auto">
-        <button class="btn btn-warning my-3 mx-auto" (click)="showbenefits(uconfirm)">Click Me</button>
-      </div>
-      <div class="col-12">
-        <ng-container *ngIf="permissiongranted">
-          <ul *ngFor="let desc of angularBenefits">
-            <h3 class="text-success">{{desc.title}}</h3>
-            <li>{{desc.description}}</li>
-          </ul>
-        </ng-container>
+    <div class="mb-3">
+      <div class="form-check" *ngFor="let item of gender">
+        <input class="form-check-input" type="radio" formControlName="gender" id="{{item.id}}" value="{{item.value}}">
+        <label class="form-check-label" for="{{item.id}}">
+          {{item.value}}
+        </label>
       </div>
     </div>
-  </div>
+    <div class="my-3" formArrayName="skills">
+      <ng-container *ngFor="let item of getControls();let i = index">
+        <input type="text" class="form-control mb-3" id="{{i}}" placeholder="Enter skills ..." formControlName="{{i}}">
+      </ng-container>
+      <button class="btn btn-light btnAdd btn-sm" (click)="addSkill()"><i>+ </i>Add Skills</button>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
 </div>

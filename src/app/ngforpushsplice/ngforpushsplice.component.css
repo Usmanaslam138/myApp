@@ -1,0 +1,13 @@
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+  border: 1px solid red;
+  box-shadow: 0 0 10px inset rgb(232, 69, 69);
+}
+
+.formData p {
+  font-size: 20px;
+}
+
+.formData p strong {
+  color: orange;
+}
