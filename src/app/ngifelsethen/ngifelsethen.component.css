@@ -32,3 +32,18 @@ select.ng-invalid.ng-touched {
   background-color: #fff;
   color: #007bff;
 }
+
+form.INVALID {
+  border: 1px solid red !important;
+  box-shadow: 0 0 37px rgb(232, 69, 69) !important;
+}
+
+form.PENDING {
+  border: 1px solid rgb(255, 119, 0) !important;
+  box-shadow: 0 0 37px rgb(232, 134, 69) !important;
+}
+
+form.VALID {
+  border: 1px solid rgb(0, 255, 8) !important;
+  box-shadow: 0 0 37px rgb(83, 232, 69) !important;
+}

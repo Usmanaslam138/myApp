@@ -1,30 +1,42 @@
 <div class="container bg-body-secondary py-3">
   <h1 class="text-center py-2">Contact Us</h1>
-  <form class="rounded shadow p-5 w-50 m-auto" [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()">
+  <form class="rounded shadow p-5 w-50 m-auto" [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()"
+    [ngClass]="formStatus">
     <div formGroupName="userDetail">
       <div class="mb-3">
         <label for="username" class="form-label">UserName</label>
         <input type="text" class="form-control" id="username" placeholder="Enter your username"
           formControlName="username">
+        <small
+          *ngIf="!myReactiveForm.get('userDetail.username')?.valid && myReactiveForm.get('userDetail.username')?.touched"
+          class="text-danger">
+          <span *ngIf="myReactiveForm.get('userDetail.username')?.errors?.['required']">Please enter a valid
+            username</span>
+          <span *ngIf="myReactiveForm.get('userDetail.username')?.errors?.['userAlreadyExist']">Username already
+            exist!</span>
+        </small>
 
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
         <input type="email" class="form-control" id="email" placeholder="Enter your Email" formControlName="email">
         <small class="text-danger"
-          *ngIf="!myReactiveForm.get('userDetail.email')?.valid && myReactiveForm.get('userDetail.email')?.touched">Please
-          enter a valid
-          email</small>
+          *ngIf="!myReactiveForm.get('userDetail.email')?.valid && myReactiveForm.get('userDetail.email')?.touched">
+          <span *ngIf="myReactiveForm.get('userDetail.email')?.errors?.['required']">Please enter a valid
+            Email Address</span>
+          <span *ngIf="myReactiveForm.get('userDetail.email')?.errors?.['emailNotAllowed']">Email already
+            exist!</span>
+        </small>
       </div>
     </div>
     <div class="form-group mb-3">
       <label class="form-label" for="course">Select Course</label>
       <select class="form-select" id="course" formControlName="course">
         <option value="HTML">HTML</option>
-        <option value="HTML">CSS</option>
-        <option value="HTML">Bootstrap</option>
-        <option value="HTML">Angular</option>
-        <option value="HTML">React</option>
+        <option value="CSS">CSS</option>
+        <option value="Bootstrap">Bootstrap</option>
+        <option value="Angular">Angular</option>
+        <option value="React">React</option>
       </select>
     </div>
     <div class="mb-3">
@@ -39,10 +51,21 @@
       <ng-container *ngFor="let item of getControls();let i = index">
         <input type="text" class="form-control mb-3" id="{{i}}" placeholder="Enter skills ..." formControlName="{{i}}">
       </ng-container>
-      <button class="btn btn-light btnAdd btn-sm" (click)="addSkill()"><i>+ </i>Add Skills</button>
+      <button type="button" class="btn btn-light btnAdd btn-sm" (click)="addSkill()"><i>+ </i>Add Skills</button>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" [disabled]="!myReactiveForm.valid" class="btn btn-primary">Submit</button>
   </form>
+
+  <div class="row">
+    <div class="col-md-5 formData p-3 mx-3 mt-5 shadow rounder" *ngFor="let data of formData ; let i = index">
+      <h2 class="text-center text-warning">User Id {{i}}</h2>
+      <p><strong>Username: </strong> {{data.username}}</p>
+      <p><strong>Email Id: </strong>{{data.Email}} </p>
+      <p><strong>Course Selected: </strong>{{data.course}} </p>
+      <p><strong>Gender: </strong>{{data.gender}}</p>
+      <p><strong>Skills: </strong>{{data.skill}}</p>
+    </div>
+  </div>
 
 </div>

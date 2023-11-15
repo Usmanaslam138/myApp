@@ -8,7 +8,7 @@
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
-    "noImplicitReturns": true,
+    "noImplicitReturns": false,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
@@ -20,8 +20,8 @@
     "module": "ES2022",
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"],
-    "noImplicitAny": false
-    // "strictPropertyInitialization": false
+    "noImplicitAny": false,
+    "strictPropertyInitialization": false
     // "checkJs": true
   },
   "angularCompilerOptions": {
